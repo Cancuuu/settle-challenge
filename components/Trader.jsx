@@ -1,4 +1,5 @@
 import React, { useContext, useState, useEffect } from "react";
+import ReactDOM from "react-dom";
 import Input from "./Input";
 import Button from "./Button";
 import { StateContext } from "../context/StateProvider";
@@ -25,16 +26,17 @@ const Trader = () => {
   const [sellAmount, setSellAmount] = useState("");
   const [sellPrice, setSellPrice] = useState("");
 
+
   const handleOrder = (operation) => {
     if (orderType.market) {
       if (operation === "buy") {
         let newOrder = new BuyMarketOrder(
           allOrders + 1,
-          selectedCoin,
+          selectedCoin.symbol,
           buyAmount,
           "fixed price",
           "pending",
-          new Date().getTime()
+          new Date().toLocaleTimeString()
         );
         setAllOrders([...allOrders, newOrder]);
         setBuyAmount("");
@@ -43,11 +45,11 @@ const Trader = () => {
       if (operation === "sell") {
         let newOrder = new SellMarketOrder(
           allOrders + 1,
-          selectedCoin,
+          selectedCoin.symbol,
           sellAmount,
           "fixed price",
           "pending",
-          new Date().getTime()
+          new Date().toLocaleTimeString()
         );
         setAllOrders([...allOrders, newOrder]);
         setSellAmount("");
@@ -58,11 +60,11 @@ const Trader = () => {
       if (operation === "buy") {
         let newOrder = new BuyLimitOrder(
           allOrders + 1,
-          selectedCoin,
+          selectedCoin.symbol,
           buyAmount,
           buyPrice,
           "pending",
-          new Date().getTime()
+          new Date().toLocaleTimeString()
         );
         setTradeOrders([...tradeOrders, newOrder]);
         setAllOrders([...allOrders, newOrder]);
@@ -73,11 +75,11 @@ const Trader = () => {
       if (operation === "sell") {
         let newOrder = new SellLimitOrder(
           allOrders + 1,
-          selectedCoin,
+          selectedCoin.symbol,
           sellAmount,
           sellPrice,
           "pending",
-          new Date().getTime()
+          new Date().toLocaleTimeString()
         );
         setTradeOrders([...tradeOrders, newOrder]);
         setAllOrders([...allOrders, newOrder]);

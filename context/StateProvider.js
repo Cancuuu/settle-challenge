@@ -4,7 +4,10 @@ export const StateContext = createContext();
 
 const StateProvider = (props) => {
   // state para el token seleccionado
-  const [selectedCoin, setSelectedCoin] = useState("BTC");
+  const [selectedCoin, setSelectedCoin] = useState({
+    label: "Bitcoin",
+    symbol: "BTC",
+  });
 
   // state para las tradeOrders
   const [tradeOrders, setTradeOrders] = useState([]);

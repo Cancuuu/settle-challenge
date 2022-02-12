@@ -1,7 +1,8 @@
 import React, { useContext } from "react";
+import Image from "next/image";
 import { StateContext } from "../context/StateProvider";
 import Button from "./Button";
-import { Autocomplete, TextField } from "@mui/material";
+import { Autocomplete, Box, TextField } from "@mui/material";
 
 const SelectCoin = () => {
   const { setSelectedCoin, setTxHistory, txHistory } = useContext(StateContext);
@@ -27,9 +28,14 @@ const SelectCoin = () => {
           disablePortal
           className="w-1/2 rounded-lg"  
           options={tokens}
-          renderInput={(params) => <TextField {...params} label="Tokens" />}
+          defaultValue={tokens[0]}
+          renderInput={(params) => (
+            <Box>
+              <TextField {...params} label="Tokens" />
+            </Box>
+          )}
           onChange={(event, value) => {
-            console.log(value.symbol);
+            setSelectedCoin(value);
           }}
         />
       <div>
