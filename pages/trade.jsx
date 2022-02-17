@@ -31,7 +31,6 @@ const trade = () => {
           <SelectCoin />
           <div className="row-start-2 row-end-4"></div>
           <div className="row-start-4 row-end-7 p-8 flex flex-col justify-center items-center">
-            <OrderTypes />
             <Trader />
           </div>
         </div>
