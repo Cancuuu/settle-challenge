@@ -8,7 +8,7 @@ import { styled, Box } from "@mui/system";
 import ModalUnstyled from "@mui/base/ModalUnstyled";
 import OrderCard from "../components/OrderCard";
 
-const trade = () => {
+const Trade = () => {
   const { txHistory, setTxHistory, allOrders, txStatus, setTxStatus } = useContext(StateContext);
 
   const Backdrop = styled("div")`
@@ -62,4 +62,4 @@ const trade = () => {
   );
 };
 
-export default trade;
+export default Trade;
