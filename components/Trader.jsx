@@ -26,7 +26,6 @@ const Trader = () => {
   const [sellAmount, setSellAmount] = useState("");
   const [sellPrice, setSellPrice] = useState("");
 
-
   const handleOrder = (operation) => {
     if (orderType.market) {
       if (operation === "buy") {
@@ -107,7 +106,7 @@ const Trader = () => {
         <Button
           buttonText="Buy"
           action={() => handleOrder("buy")}
-          style="bg-blue-500 transition duration-300 ease-in-out"
+          style="bg-gradient-to-r from-green-400 to-blue-500 transition duration-300 ease-in-out hover:from-pink-500 hover:to-yellow-500"
         />
       </div>
       <div className="flex flex-col justify-around items-center h-full w-full m-8">
@@ -126,7 +125,7 @@ const Trader = () => {
         <Button
           buttonText="Sell"
           action={() => handleOrder("sell")}
-          style="bg-blue-500 transition duration-300 ease-in-out"
+          style="bg-gradient-to-r from-green-400 to-blue-500  hover:from-pink-500 hover:to-yellow-500 transition duration-700 ease-in-out"
         />
       </div>
     </div>
